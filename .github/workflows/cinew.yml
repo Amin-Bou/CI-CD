@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: 3.8
       - run: pip install pylint
-      - run: pylint my_app/
+      - run: pylint app.py
 
   Docker-push:
    
