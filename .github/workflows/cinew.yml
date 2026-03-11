@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-	uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Lint Dockerfile scan
         uses: redhat-actions/dockerfile-lint@v2
@@ -22,8 +22,8 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.11
-     - run: pip install pylint
-     - run: pylint my_app/
+      - run: pip install pylint
+      - run: pylint my_app/
 
   Docker-push:
    
@@ -53,6 +53,7 @@ jobs:
             ECR_REGISTRY: ${{ steps.login-pf-aws-ecr.outputs.registry }}
             ECR_REPOSITORY: ${{secrets.AWS_ECR_REPO}}
             IMAGE_TAG: latest
-          run: docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          run:  docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          run: | 
+            docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+            docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
