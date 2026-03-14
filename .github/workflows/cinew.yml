@@ -39,8 +39,6 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v4 
           
-        - name: Debug secrets
-          run: echo "Secrets loaded"
             
         - name: Setup AWS ECR Details
           uses: aws-actions/configure-aws-credentials@v4
