@@ -39,12 +39,12 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v4 
           
-            - name: Test if secrets exist
-              run: |
-                if [ -z "${{ secrets.AWS_ACCESS_KEY_ID }}" ]; then
-                  echo "AWS_ACCESS_KEY_ID is empty"
-                else
-                  echo "AWS_ACCESS_KEY_ID detected"
+        - name: Test if secrets exist
+          run: |
+            if [ -z "${{ secrets.AWS_ACCESS_KEY_ID }}" ]; then
+              echo "AWS_ACCESS_KEY_ID is empty"
+            else
+              echo "AWS_ACCESS_KEY_ID detected"
                 fi
             
         - name: Setup AWS ECR Details
