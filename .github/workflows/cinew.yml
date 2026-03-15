@@ -39,6 +39,13 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v4 
           
+            - name: Test if secrets exist
+              run: |
+                if [ -z "${{ secrets.AWS_ACCESS_KEY_ID }}" ]; then
+                  echo "AWS_ACCESS_KEY_ID is empty"
+                else
+                  echo "AWS_ACCESS_KEY_ID detected"
+                fi
             
         - name: Setup AWS ECR Details
           uses: aws-actions/configure-aws-credentials@v4
@@ -50,7 +57,7 @@ jobs:
 
         - name: Login to Amazon ECR
           id: login-pf-aws-ecr
-          uses: aws-actions/amazon-ecr-login@v1
+          uses: aws-actions/amazon-ecr-login@v2
           
 
         - name: Build and push the tagged docker image to Amazon ECR
