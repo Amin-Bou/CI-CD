@@ -2,3 +2,6 @@ Amin Bourenane: "I am using a YouTube video (https://www.youtube.com/watch?v=R8_
 
 Once I have learnt the basics, I will then try to make a pipeline that: builds, scans and pushes a docker image (of a python website) to Amazon ECR.
 
+
+
+--> Pipeline done: most recent pipeline has worked, image has been pushed to ECR
